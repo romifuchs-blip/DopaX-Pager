@@ -13,39 +13,13 @@ const Hero = () => {
       {/* Fallback placeholder if image is missing */}
       <div className="absolute right-0 top-0 h-full w-[40%] pointer-events-none"></div>
 
-      {/* Top Header/Navigation Container */}
-      <header className="relative z-20 w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-6 pb-2 flex flex-row items-center justify-between md:justify-start gap-8 flex-wrap">
-        <img
-          src="/assets/logos/Dopa-Z-logo light.svg"
-          alt="dopa-x Logo"
-          className="w-48 md:w-56 h-auto object-contain"
-        />
-        <nav className="flex items-center gap-4 text-gray-300 font-outfit text-[18px] font-semibold tracking-wide">
-          <a href="#missing-x" className="transition-colors duration-200 hover:text-brand-orange">
-            The Missing-X
-          </a>
-          <span className="text-gray-500">|</span>
-          <a href="#partners" className="transition-colors duration-200 hover:text-brand-orange">
-            Our Partners
-          </a>
-          <span className="text-gray-500">|</span>
-          <a href="#team" className="transition-colors duration-200 hover:text-brand-orange">
-            Our Team
-          </a>
-          <span className="text-gray-500">|</span>
-          <a href="#join-us" className="transition-colors duration-200 hover:text-brand-orange">
-            Join Us
-          </a>
-        </nav>
-      </header>
-
       {/* Main Content Container */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={bgLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.7, ease: "easeOut" }}
-        className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-6 lg:py-10 flex flex-col items-start text-left flex-grow justify-center"
+        className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16 pt-32 pb-10 md:pt-40 lg:pt-44 flex flex-col items-start text-left flex-grow justify-center"
       >
 
         {/* Text Width Constraint */}

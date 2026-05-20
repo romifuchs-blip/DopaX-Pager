@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import frame40Bg from '../assets/Frame 40.svg';
 const JoinUs = () => {
+  const [name, setName] = useState('');
+  const [organization, setOrganization] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
   const cards = [
     {
       title: "PHILANTHROPIC SUPPORT",
@@ -78,30 +83,54 @@ const JoinUs = () => {
       >
         
         {/* Heading */}
-        <h2 className="text-4xl md:text-5xl font-rajdhani font-bold mb-8 text-center text-brand-navy-dark w-full">
+        <h2 className="text-4xl md:text-5xl font-rajdhani font-bold mb-5 text-center text-brand-navy-dark w-full">
           Join Us.
         </h2>
         
-        {/* 3-Card Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {cards.map((card, idx) => (
-            <div 
-              key={idx} 
-              className="bg-gradient-to-b from-[#EAEAF5] to-[#FCEAE3] rounded-[2.5rem] p-10 md:p-12 shadow-sm flex flex-col items-start text-left border border-transparent transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-brand-orange"
-            >
-              <h3 className="text-[15px] font-rajdhani font-bold uppercase tracking-widest text-brand-navy-dark mb-6 text-left w-full">
-                {card.title}
-              </h3>
-              <p className="font-outfit text-brand-navy-dark font-medium leading-relaxed text-[16px] m-0 text-left w-full">
-                {card.desc}
-              </p>
-            </div>
-          ))}
+        {/* 3-Card Grid Wrapper */}
+        <div className="relative w-full max-w-[950px] mx-auto">
+          {/* Natural Image Layer */}
+          <img 
+            src={frame40Bg} 
+            alt="Support Options" 
+            className="w-full h-auto object-contain pointer-events-none" 
+          />
+          
+          {/* Absolute Overlay Grid */}
+          <div className="absolute inset-0 w-full h-full grid grid-cols-3">
+            {cards.map((card, idx) => (
+              <div 
+                key={idx} 
+                className="flex flex-col items-center justify-center text-center px-4 sm:px-8 h-full"
+              >
+                <h3 className="text-[11px] sm:text-[15px] md:text-[20px] font-rajdhani font-medium leading-[1.2] tracking-[1.2px] uppercase text-brand-blue text-center w-full">
+                  {card.title}
+                </h3>
+                <p className="font-outfit font-normal text-[9px] sm:text-[12px] md:text-[16px] leading-[1.7] text-brand-navy-dark text-center w-full mt-2 md:mt-3">
+                  {card.desc}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
         
         {/* Contact Form Section */}
-        <div className="mt-12 md:mt-16 w-full flex flex-col items-center relative z-10">
-          <form className="w-full max-w-[700px] mx-auto border-2 border-[#2828C6] rounded-[19px] p-6 pt-8 md:p-10 md:pt-12 flex flex-col gap-5 bg-transparent">
+        <div className="mt-6 md:mt-8 w-full flex flex-col items-center relative z-10">
+          <form 
+            onSubmit={(e) => {
+              e.preventDefault();
+              const mailtoSubject = "New Contact from Dopa-X Website";
+              const mailtoBody = `Name: ${name}
+Organization: ${organization || 'N/A'}
+Email: ${email}
+
+Message:
+${message}`;
+              const mailtoLink = `mailto:hello@dopa-x.org?subject=${encodeURIComponent(mailtoSubject)}&body=${encodeURIComponent(mailtoBody)}`;
+              window.location.href = mailtoLink;
+            }}
+            className="w-full max-w-[700px] mx-auto border-2 border-[#2828C6] rounded-[19px] p-6 pt-8 md:p-10 md:pt-12 flex flex-col gap-5 bg-transparent"
+          >
             
             <h3 className="text-brand-navy-dark text-xl md:text-2xl font-rajdhani font-bold uppercase tracking-widest mb-2 text-left">
               TELL US HOW YOU'D LIKE TO GET INVOLVED:
@@ -115,6 +144,9 @@ const JoinUs = () => {
                 <input 
                   type="text" 
                   placeholder="Your Name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
                   className="w-full h-[38px] bg-[#F0F4F8] rounded-[12px] px-4 text-brand-navy-dark placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-[#2828C6] transition-all font-outfit text-sm" 
                 />
               </div>
@@ -124,6 +156,8 @@ const JoinUs = () => {
                 <input 
                   type="text" 
                   placeholder="Your Organization"
+                  value={organization}
+                  onChange={(e) => setOrganization(e.target.value)}
                   className="w-full h-[38px] bg-[#F0F4F8] rounded-[12px] px-4 text-brand-navy-dark placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-[#2828C6] transition-all font-outfit text-sm" 
                 />
               </div>
@@ -133,6 +167,9 @@ const JoinUs = () => {
                 <input 
                   type="email" 
                   placeholder="name@company.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
                   className="w-full h-[38px] bg-[#F0F4F8] rounded-[12px] px-4 text-brand-navy-dark placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-[#2828C6] transition-all font-outfit text-sm" 
                 />
               </div>
@@ -145,13 +182,15 @@ const JoinUs = () => {
                 <label className="text-[#2828C6] font-rajdhani font-bold text-[13px] mb-1.5 uppercase tracking-widest">Message</label>
                 <textarea 
                   placeholder="Anything we should know before we talk?"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
                   className="w-full h-[52px] bg-[#F0F4F8] rounded-[12px] px-4 py-3 text-brand-navy-dark placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-[#2828C6] transition-all font-outfit text-sm resize-none"
                 ></textarea>
               </div>
               {/* BUTTON */}
               <div className="flex flex-col w-full md:w-[49%] justify-end mt-4 md:mt-0">
                 <button 
-                  type="button" 
+                  type="submit" 
                   className="w-full h-[52px] bg-[#2828C6] hover:bg-blue-700 text-white font-rajdhani font-bold text-[16px] tracking-widest uppercase rounded-[8px] transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
                 >
                   Let's talk
