@@ -38,7 +38,7 @@ const Timeline = () => {
   ];
 
   return (
-    <section className="w-full bg-[#F9FAFB] py-24 relative overflow-hidden">
+    <section className="w-full bg-[#F9FAFB] py-10 relative overflow-hidden">
       <img src={bg06} className={`absolute inset-0 w-full h-full object-cover pointer-events-none z-0 transition-opacity duration-1000 ${bgLoaded ? 'opacity-100' : 'opacity-0'}`} alt="Timeline Background" onLoad={() => setBgLoaded(true)} />
       <div className="relative z-10">
       <motion.div
@@ -46,11 +46,11 @@ const Timeline = () => {
         whileInView={bgLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.7, ease: "easeOut" }}
-        className="max-w-7xl mx-auto w-full px-6 md:px-12 lg:px-16"
+        className="max-w-[1400px] mx-auto w-full px-6 md:px-12 lg:px-16"
       >
 
         {/* Heading */}
-        <h2 className="text-4xl md:text-5xl font-rajdhani font-bold text-brand-navy-dark leading-tight mb-8 text-center">
+        <h2 className="text-4xl md:text-5xl font-rajdhani font-bold text-brand-navy-dark leading-tight mb-4 text-center">
           The Work Has Already Begun.
         </h2>
 
@@ -58,7 +58,7 @@ const Timeline = () => {
         <div className="relative w-full">
 
           {/* Axis Wrapper (Sticky Timeline Axis) */}
-          <div className="hidden md:flex relative w-full items-center h-16 mb-8 mt-12 sticky top-20 z-40 bg-[#F9FAFB]/90 backdrop-blur-md">
+          <div className="hidden md:flex relative w-full items-center h-16 mb-8 mt-12 sticky top-20 z-40 bg-transparent">
 
             {/* The Line */}
             <div className="absolute left-0 right-0 h-[2px] bg-[#1E1E46] z-0"></div>
@@ -87,7 +87,7 @@ const Timeline = () => {
           </div>
 
           {/* The 5-Column Grid for Cards */}
-          <div className="w-full grid grid-cols-1 md:grid-cols-5 gap-4 relative z-10">
+          <div className="w-full grid grid-cols-1 md:grid-cols-5 gap-6 relative z-10 items-stretch">
             {phases.map((phase, idx) => {
 
               // Determine Card Styling based on strictly defined status
@@ -106,20 +106,20 @@ const Timeline = () => {
               }
 
               return (
-                <div key={`card-${idx}`} className="flex flex-col relative w-full mt-8 md:mt-0">
+                <div key={`card-${idx}`} className="flex relative w-full mt-8 md:mt-0">
 
                   {/* The Card */}
-                  <div className={`rounded-[2rem] p-6 flex flex-col items-start text-left ${cardBg} ${cardBorder} shadow-sm h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-brand-orange`}>
+                  <div className={`rounded-[2rem] p-8 flex flex-col items-start text-left ${cardBg} ${cardBorder} shadow-sm w-full h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-brand-orange`}>
 
-                    <span className={`text-[10px] font-outfit font-bold uppercase tracking-widest mb-4 ${statusColor}`}>
+                    <span className={`text-[13px] font-outfit font-bold uppercase tracking-widest mb-2 ${statusColor}`}>
                       {phase.status}
                     </span>
 
-                    <h3 className="font-rajdhani font-bold text-brand-navy-dark text-[17px] mb-3 leading-tight">
+                    <h3 className="font-rajdhani font-bold text-brand-navy-dark text-2xl lg:text-3xl mb-2 leading-tight">
                       {phase.title}
                     </h3>
 
-                    <p className="font-outfit text-gray-500 text-[13px] leading-relaxed m-0">
+                    <p className="font-outfit text-gray-500 text-[16px] lg:text-[17px] leading-relaxed m-0">
                       {phase.desc}
                     </p>
 

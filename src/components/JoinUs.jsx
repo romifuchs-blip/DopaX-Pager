@@ -17,7 +17,7 @@ const JoinUs = () => {
   ];
 
   return (
-    <section className="w-full bg-[#EAEAF5] py-24 relative overflow-hidden">
+    <section id="join-us" className="w-full bg-[#EAEAF5] py-10 relative overflow-hidden">
       {/* Faint DNA Background Graphic */}
       <svg width="100%" height="100%" viewBox="0 0 1000 431" fill="none" xmlns="http://www.w3.org/2000/svg"  preserveAspectRatio="xMidYMid slice" className="absolute inset-0 pointer-events-none z-0 opacity-50 mix-blend-multiply">
 <g clipPath="url(#clip0_44_674)">
@@ -78,7 +78,7 @@ const JoinUs = () => {
       >
         
         {/* Heading */}
-        <h2 className="text-4xl md:text-5xl font-rajdhani font-bold mb-16 text-center text-brand-navy-dark">
+        <h2 className="text-4xl md:text-5xl font-rajdhani font-bold mb-8 text-center text-brand-navy-dark w-full">
           Join Us.
         </h2>
         
@@ -87,18 +87,79 @@ const JoinUs = () => {
           {cards.map((card, idx) => (
             <div 
               key={idx} 
-              className="bg-gradient-to-b from-[#EAEAF5] to-[#FCEAE3] rounded-[2.5rem] p-10 md:p-12 shadow-sm flex flex-col items-center text-center border border-transparent transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-brand-orange"
+              className="bg-gradient-to-b from-[#EAEAF5] to-[#FCEAE3] rounded-[2.5rem] p-10 md:p-12 shadow-sm flex flex-col items-start text-left border border-transparent transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-brand-orange"
             >
-              <h3 className="text-[15px] font-rajdhani font-bold uppercase tracking-widest text-blue-800 mb-6">
+              <h3 className="text-[15px] font-rajdhani font-bold uppercase tracking-widest text-brand-navy-dark mb-6 text-left w-full">
                 {card.title}
               </h3>
-              <p className="font-outfit text-blue-800 leading-relaxed text-[16px] m-0">
+              <p className="font-outfit text-brand-navy-dark font-medium leading-relaxed text-[16px] m-0 text-left w-full">
                 {card.desc}
               </p>
             </div>
           ))}
         </div>
         
+        {/* Contact Form Section */}
+        <div className="mt-12 md:mt-16 w-full flex flex-col items-center relative z-10">
+          <form className="w-full max-w-[700px] mx-auto border-2 border-[#2828C6] rounded-[19px] p-6 pt-8 md:p-10 md:pt-12 flex flex-col gap-5 bg-transparent">
+            
+            <h3 className="text-brand-navy-dark text-xl md:text-2xl font-rajdhani font-bold uppercase tracking-widest mb-2 text-left">
+              TELL US HOW YOU'D LIKE TO GET INVOLVED:
+            </h3>
+            
+            {/* Row 1 */}
+            <div className="flex flex-col md:flex-row gap-4 w-full">
+              {/* NAME */}
+              <div className="flex flex-col w-full md:w-[28.5%]">
+                <label className="text-[#2828C6] font-rajdhani font-bold text-[13px] mb-1.5 uppercase tracking-widest">Name*</label>
+                <input 
+                  type="text" 
+                  placeholder="Your Name"
+                  className="w-full h-[38px] bg-[#F0F4F8] rounded-[12px] px-4 text-brand-navy-dark placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-[#2828C6] transition-all font-outfit text-sm" 
+                />
+              </div>
+              {/* ORGANIZATION */}
+              <div className="flex flex-col w-full md:w-[28.5%]">
+                <label className="text-[#2828C6] font-rajdhani font-bold text-[13px] mb-1.5 uppercase tracking-widest">Organization</label>
+                <input 
+                  type="text" 
+                  placeholder="Your Organization"
+                  className="w-full h-[38px] bg-[#F0F4F8] rounded-[12px] px-4 text-brand-navy-dark placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-[#2828C6] transition-all font-outfit text-sm" 
+                />
+              </div>
+              {/* EMAIL */}
+              <div className="flex flex-col w-full md:w-[39.5%]">
+                <label className="text-[#2828C6] font-rajdhani font-bold text-[13px] mb-1.5 uppercase tracking-widest">Email*</label>
+                <input 
+                  type="email" 
+                  placeholder="name@company.com"
+                  className="w-full h-[38px] bg-[#F0F4F8] rounded-[12px] px-4 text-brand-navy-dark placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-[#2828C6] transition-all font-outfit text-sm" 
+                />
+              </div>
+            </div>
+            
+            {/* Row 2 */}
+            <div className="flex flex-col md:flex-row gap-4 w-full mt-2">
+              {/* MESSAGE */}
+              <div className="flex flex-col w-full md:w-[49%]">
+                <label className="text-[#2828C6] font-rajdhani font-bold text-[13px] mb-1.5 uppercase tracking-widest">Message</label>
+                <textarea 
+                  placeholder="Anything we should know before we talk?"
+                  className="w-full h-[52px] bg-[#F0F4F8] rounded-[12px] px-4 py-3 text-brand-navy-dark placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-[#2828C6] transition-all font-outfit text-sm resize-none"
+                ></textarea>
+              </div>
+              {/* BUTTON */}
+              <div className="flex flex-col w-full md:w-[49%] justify-end mt-4 md:mt-0">
+                <button 
+                  type="button" 
+                  className="w-full h-[52px] bg-[#2828C6] hover:bg-blue-700 text-white font-rajdhani font-bold text-[16px] tracking-widest uppercase rounded-[8px] transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
+                >
+                  Let's talk
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
 
       </motion.div>
     </section>

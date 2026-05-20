@@ -1,86 +1,49 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import bg05 from '../assets/bg-05.svg';
+import frame40 from '../assets/Frame40.svg';
+
 const IntelligenceLayer = () => {
   const [bgLoaded, setBgLoaded] = useState(false);
   return (
-    <section className="w-full bg-brand-navy-dark pt-20 pb-24 relative overflow-hidden">
+    <section className="w-full bg-brand-navy-dark py-10 relative overflow-hidden">
       <img src={bg05} className={`absolute inset-0 w-full h-full object-cover pointer-events-none z-0 transition-opacity duration-1000 ${bgLoaded ? 'opacity-100' : 'opacity-0'}`} alt="bg bottom" onLoad={() => setBgLoaded(true)} />
       
       {/* Main Content */}
       <div className="relative z-10">
         <motion.div 
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={bgLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
-        className="max-w-7xl mx-auto w-full flex flex-col lg:flex-row items-stretch gap-12 px-6 md:px-12 lg:px-16 relative z-10"
-      >
-        
-        {/* Left Column (Title & Logo) */}
-        <div className="w-full lg:w-[30%] flex flex-col justify-center items-start text-left">
-          <img 
-            src="/assets/logos/Dopa-Z-logo light.svg" 
-            alt="DopaX Logo" 
-            className="w-32 mb-6 object-contain" 
-          />
-          <h2 className="text-white font-rajdhani text-4xl font-bold leading-tight m-0">
-            Intelligence Layer:
-          </h2>
-          <p className="text-gray-light text-sm uppercase tracking-widest mt-4 font-outfit m-0 leading-relaxed">
-            A CLOSED-LOOP SYSTEM<br/>FOR PARKINSON'S.
-          </p>
-        </div>
-
-        {/* Right Column (The 3 Cards) */}
-        <div className="w-full lg:w-[70%] grid grid-cols-1 md:grid-cols-3 gap-6">
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={bgLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="max-w-[90vw] mx-auto xl:max-w-screen-2xl w-full flex flex-col lg:flex-row items-center gap-12 lg:gap-16 px-6 md:px-12 relative z-10"
+        >
           
-          {/* Card 1: Sense */}
-          <div className="bg-transparent border-2 border-brand-orange rounded-[2.5rem] p-8 flex flex-col justify-between min-h-[250px] text-center shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:bg-white/5">
-            <div className="flex flex-col items-center">
-              <div className="text-5xl font-rajdhani font-bold text-white mb-6">01</div>
-              <h3 className="uppercase tracking-widest text-gray-300 font-outfit font-medium mb-4 text-sm">
-                SENSE
-              </h3>
-              <p className="text-[13px] text-gray-400 font-outfit leading-relaxed m-0">
-                Physiological and behavioral data, continuously collected within and beyond the clinical visit
-              </p>
-            </div>
-            {/* Empty div for spacing at the bottom to balance the wave */}
-            <div></div>
+          {/* Column 1: Left - Text Area */}
+          <div className="w-full lg:w-1/4 flex flex-col items-start text-left">
+            <img 
+              src="/assets/logos/Dopa-Z-logo light.svg" 
+              alt="dopa-x Logo" 
+              className="w-32 md:w-40 mb-3 object-contain" 
+            />
+            <h2 className="text-white font-rajdhani text-3xl md:text-4xl lg:text-5xl font-bold leading-tight m-0 tracking-tight">
+              Intelligence<br className="hidden lg:block"/> Layer:
+            </h2>
+            <p className="text-gray-light text-sm md:text-base uppercase tracking-[0.2em] mt-3 font-outfit m-0 leading-relaxed opacity-90 text-left">
+              A CLOSED-LOOP SYSTEM<br/>FOR PARKINSON'S.
+            </p>
           </div>
 
-          {/* Card 2: Analyze */}
-          <div className="bg-transparent border-2 border-brand-orange rounded-[2.5rem] p-8 flex flex-col justify-between min-h-[250px] text-center shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:bg-white/5">
-            <div className="flex flex-col items-center">
-              <h3 className="uppercase tracking-widest text-gray-300 font-outfit font-medium mb-4 text-sm">
-                ANALYZE
-              </h3>
-              <p className="text-[13px] text-gray-400 font-outfit leading-relaxed m-0">
-                Disease state, progression patterns, and treatment response
-              </p>
-            </div>
-            <div className="text-5xl font-rajdhani font-bold text-white mt-6">02</div>
+          {/* Column 2: Right - Image */}
+          <div className="w-full lg:w-3/4 flex items-center justify-center">
+            <img 
+              src={frame40} 
+              alt="Intelligence Layer" 
+              className="w-full h-auto object-contain"
+            />
           </div>
 
-          {/* Card 3: Deliver */}
-          <div className="bg-transparent border-2 border-brand-orange rounded-[2.5rem] p-8 flex flex-col justify-between min-h-[250px] text-center shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:bg-white/5">
-            <div className="flex flex-col items-center">
-              <div className="text-5xl font-rajdhani font-bold text-white mb-6">03</div>
-              <h3 className="uppercase tracking-widest text-gray-300 font-outfit font-medium mb-4 text-sm">
-                DELIVER
-              </h3>
-              <p className="text-[13px] text-gray-400 font-outfit leading-relaxed m-0">
-                Adaptive, data-informed intervention over time. A signal patients, clinicians and researchers can finally act on.
-              </p>
-            </div>
-            {/* Empty div for spacing at the bottom to balance the wave */}
-            <div></div>
-          </div>
-
-        </div>
-
-      </motion.div>
+        </motion.div>
       </div>
     </section>
   );

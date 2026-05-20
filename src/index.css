@@ -4,6 +4,9 @@
 @config "../tailwind.config.js";
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
   html, body {
     @apply bg-bg-light text-brand-navy-dark font-outfit m-0 p-0 overflow-x-hidden;
   }
