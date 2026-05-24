@@ -18,6 +18,8 @@ import orocaLogo from '../assets/Oroca-logo.png';
 import chenLinchevskiPic from '../assets/ChenLinchevski.svg';
 import profMoussaYoudimPic from '../assets/Prof.MoussaYoudim.svg';
 import profHagaiBergmanPic from '../assets/Prof.HagaiBergman.svg';
+import atanGrossPic from '../assets/AtanGross.png';
+import shayBenShacharPic from '../assets/ShayBen-Shachar.jpg';
 
 const Partners = () => {
   const location = useLocation();
@@ -57,6 +59,20 @@ const Partners = () => {
       bio: 'Leading expert in Deep Brain Stimulation (DBS) and brain physiology; fundamental for understanding PD signals.',
       linkedinText: 'Prof. Hagai Bergman',
       linkedinUrl: 'https://www.linkedin.com/in/hagai-bergman-3234381a/'
+    },
+    {
+      name: 'PROF. ATAN GROSS',
+      image: atanGrossPic,
+      bio: 'Leading mitochondrial biologist at the Weizmann Institute; pioneering research on energy failure in dopaminergic cells as a root cause of Parkinson’s.',
+      linkedinText: 'Prof. Atan Gross',
+      linkedinUrl: 'https://www.linkedin.com/in/atan-gross-b5516774?utm_source=share_via&utm_content=profile&utm_medium=member_ios'
+    },
+    {
+      name: 'PROF. SHAY BEN-SHACHAR',
+      image: shayBenShacharPic,
+      bio: 'Head of Precision Medicine & Genomics at Clalit Innovation.',
+      linkedinText: 'Prof. Shay Ben-Shachar',
+      linkedinUrl: 'https://www.linkedin.com/in/shay-ben-shachar-aa9470195?utm_source=share_via&utm_content=profile&utm_medium=member_ios'
     }
   ];
 

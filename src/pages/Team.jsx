@@ -80,7 +80,7 @@ const Team = () => {
     },
     {
       name: "Dvir Dahary",
-      role: "CEO",
+      role: "CSO",
       image: dvirPic,
       truncatedBio: "Dvir has spent two decades at the frontier of human genetics, from the Weizmann Institute to genomics labs in Japan, from founding Geneyx to leading computational biology research that turned raw genetic data into clinical breakthroughs. He builds co...",
       fullBio: "Dvir has spent two decades at the frontier of human genetics, from the Weizmann Institute to genomics labs in Japan, from founding Geneyx to leading computational biology research that turned raw genetic data into clinical breakthroughs. He builds computational platforms that bridge the gap between biological complexity and actionable medicine."

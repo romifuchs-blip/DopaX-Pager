@@ -6,6 +6,48 @@ const JoinUs = () => {
   const [organization, setOrganization] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [isSending, setIsSending] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSending(true);
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name,
+          organization,
+          email,
+          message,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message. Please try again.');
+      }
+
+      setIsSuccess(true);
+      // Reset form states
+      setName('');
+      setOrganization('');
+      setEmail('');
+      setMessage('');
+    } catch (err) {
+      console.error('Contact form submission error:', err);
+      setErrorMessage(err.message || 'Something went wrong. Please try again.');
+    } finally {
+      setIsSending(false);
+    }
+  };
   const cards = [
     {
       title: "PHILANTHROPIC SUPPORT",
@@ -22,7 +64,7 @@ const JoinUs = () => {
   ];
 
   return (
-    <section id="join-us" className="w-full bg-[#EAEAF5] py-10 relative overflow-hidden">
+    <section id="join-us" className="w-full bg-[#EAEAF5] py-10 md:py-12 relative overflow-hidden">
       {/* Faint DNA Background Graphic */}
       <svg width="100%" height="100%" viewBox="0 0 1000 431" fill="none" xmlns="http://www.w3.org/2000/svg"  preserveAspectRatio="xMidYMid slice" className="absolute inset-0 pointer-events-none z-0 opacity-50 mix-blend-multiply">
 <g clipPath="url(#clip0_44_674)">
@@ -117,86 +159,104 @@ const JoinUs = () => {
         {/* Contact Form Section */}
         <div className="mt-6 md:mt-8 w-full flex flex-col items-center relative z-10">
           <form 
-            onSubmit={(e) => {
-              e.preventDefault();
-              const mailtoSubject = "New Contact from Dopa-X Website";
-              const mailtoBody = `Name: ${name}
-Organization: ${organization || 'N/A'}
-Email: ${email}
-
-Message:
-${message}`;
-              const mailtoLink = `mailto:hello@dopa-x.org?subject=${encodeURIComponent(mailtoSubject)}&body=${encodeURIComponent(mailtoBody)}`;
-              window.location.href = mailtoLink;
-            }}
+            onSubmit={handleSubmit}
             className="w-full max-w-[700px] mx-auto border-2 border-[#2828C6] rounded-[19px] p-6 pt-8 md:p-10 md:pt-12 flex flex-col gap-5 bg-transparent"
           >
-            
-            <h3 className="text-brand-navy-dark text-xl md:text-2xl font-rajdhani font-bold uppercase tracking-widest mb-2 text-left">
-              TELL US HOW YOU'D LIKE TO GET INVOLVED:
-            </h3>
-            
-            {/* Row 1 */}
-            <div className="flex flex-col md:flex-row gap-4 w-full">
-              {/* NAME */}
-              <div className="flex flex-col w-full md:w-[28.5%]">
-                <label className="text-[#2828C6] font-rajdhani font-bold text-[13px] mb-1.5 uppercase tracking-widest">Name*</label>
-                <input 
-                  type="text" 
-                  placeholder="Your Name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  required
-                  className="w-full h-[38px] bg-[#F0F4F8] rounded-[12px] px-4 text-brand-navy-dark placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-[#2828C6] transition-all font-outfit text-sm" 
-                />
+            {isSuccess ? (
+              <div className="flex flex-col items-center justify-center text-center py-6 px-4 gap-4 w-full">
+                <div className="w-16 h-16 bg-[#2828C6] text-white rounded-full flex items-center justify-center shadow-md mb-2">
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <h3 className="text-brand-navy-dark text-xl font-rajdhani font-bold uppercase tracking-widest">
+                  Thank You!
+                </h3>
+                <p className="font-outfit text-brand-navy-dark text-sm md:text-base leading-relaxed max-w-[450px]">
+                  Thank you for reaching out, we will be in touch soon!
+                </p>
               </div>
-              {/* ORGANIZATION */}
-              <div className="flex flex-col w-full md:w-[28.5%]">
-                <label className="text-[#2828C6] font-rajdhani font-bold text-[13px] mb-1.5 uppercase tracking-widest">Organization</label>
-                <input 
-                  type="text" 
-                  placeholder="Your Organization"
-                  value={organization}
-                  onChange={(e) => setOrganization(e.target.value)}
-                  className="w-full h-[38px] bg-[#F0F4F8] rounded-[12px] px-4 text-brand-navy-dark placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-[#2828C6] transition-all font-outfit text-sm" 
-                />
-              </div>
-              {/* EMAIL */}
-              <div className="flex flex-col w-full md:w-[39.5%]">
-                <label className="text-[#2828C6] font-rajdhani font-bold text-[13px] mb-1.5 uppercase tracking-widest">Email*</label>
-                <input 
-                  type="email" 
-                  placeholder="name@company.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  className="w-full h-[38px] bg-[#F0F4F8] rounded-[12px] px-4 text-brand-navy-dark placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-[#2828C6] transition-all font-outfit text-sm" 
-                />
-              </div>
-            </div>
-            
-            {/* Row 2 */}
-            <div className="flex flex-col md:flex-row gap-4 w-full mt-2">
-              {/* MESSAGE */}
-              <div className="flex flex-col w-full md:w-[49%]">
-                <label className="text-[#2828C6] font-rajdhani font-bold text-[13px] mb-1.5 uppercase tracking-widest">Message</label>
-                <textarea 
-                  placeholder="Anything we should know before we talk?"
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  className="w-full h-[52px] bg-[#F0F4F8] rounded-[12px] px-4 py-3 text-brand-navy-dark placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-[#2828C6] transition-all font-outfit text-sm resize-none"
-                ></textarea>
-              </div>
-              {/* BUTTON */}
-              <div className="flex flex-col w-full md:w-[49%] justify-end mt-4 md:mt-0">
-                <button 
-                  type="submit" 
-                  className="w-full h-[52px] bg-[#2828C6] hover:bg-blue-700 text-white font-rajdhani font-bold text-[16px] tracking-widest uppercase rounded-[8px] transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
-                >
-                  Let's talk
-                </button>
-              </div>
-            </div>
+            ) : (
+              <>
+                <h3 className="text-brand-navy-dark text-xl md:text-2xl font-rajdhani font-bold uppercase tracking-widest mb-2 text-left">
+                  TELL US HOW YOU'D LIKE TO GET INVOLVED:
+                </h3>
+                
+                {/* Row 1 */}
+                <div className="flex flex-col md:flex-row gap-4 w-full">
+                  {/* NAME */}
+                  <div className="flex flex-col w-full md:w-[28.5%]">
+                    <label className="text-[#2828C6] font-rajdhani font-bold text-[13px] mb-1.5 uppercase tracking-widest">Name*</label>
+                    <input 
+                      type="text" 
+                      placeholder="Your Name"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      required
+                      disabled={isSending}
+                      className="w-full h-[38px] bg-[#F0F4F8] rounded-[12px] px-4 text-brand-navy-dark placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-[#2828C6] transition-all font-outfit text-sm disabled:opacity-60" 
+                    />
+                  </div>
+                  {/* ORGANIZATION */}
+                  <div className="flex flex-col w-full md:w-[28.5%]">
+                    <label className="text-[#2828C6] font-rajdhani font-bold text-[13px] mb-1.5 uppercase tracking-widest">Organization</label>
+                    <input 
+                      type="text" 
+                      placeholder="Company Name"
+                      value={organization}
+                      onChange={(e) => setOrganization(e.target.value)}
+                      disabled={isSending}
+                      className="w-full h-[38px] bg-[#F0F4F8] rounded-[12px] px-4 text-brand-navy-dark placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-[#2828C6] transition-all font-outfit text-sm disabled:opacity-60" 
+                    />
+                  </div>
+                  {/* EMAIL */}
+                  <div className="flex flex-col w-full md:w-[39.5%]">
+                    <label className="text-[#2828C6] font-rajdhani font-bold text-[13px] mb-1.5 uppercase tracking-widest">Email*</label>
+                    <input 
+                      type="email" 
+                      placeholder="name@email.com"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                      disabled={isSending}
+                      className="w-full h-[38px] bg-[#F0F4F8] rounded-[12px] px-4 text-brand-navy-dark placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-[#2828C6] transition-all font-outfit text-sm disabled:opacity-60" 
+                    />
+                  </div>
+                </div>
+                
+                {/* Row 2 */}
+                <div className="flex flex-col md:flex-row gap-4 w-full mt-2">
+                  {/* MESSAGE */}
+                  <div className="flex flex-col w-full md:w-[49%]">
+                    <label className="text-[#2828C6] font-rajdhani font-bold text-[13px] mb-1.5 uppercase tracking-widest">Message</label>
+                    <textarea 
+                      placeholder="Anything we should know before we talk?"
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                      disabled={isSending}
+                      className="w-full h-[52px] bg-[#F0F4F8] rounded-[12px] px-4 py-3 text-brand-navy-dark placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-[#2828C6] transition-all font-outfit text-sm resize-none disabled:opacity-60"
+                    ></textarea>
+                  </div>
+                  {/* BUTTON */}
+                  <div className="flex flex-col w-full md:w-[49%] justify-end mt-4 md:mt-0">
+                    <button 
+                      type="submit" 
+                      disabled={isSending}
+                      className={`w-full h-[52px] bg-[#2828C6] text-white font-rajdhani font-bold text-[16px] tracking-widest uppercase rounded-[8px] transition-all shadow-md ${isSending ? 'opacity-70 cursor-not-allowed' : 'hover:bg-blue-700 hover:shadow-lg hover:-translate-y-0.5'}`}
+                    >
+                      {isSending ? "Sending..." : "Let's talk"}
+                    </button>
+                  </div>
+                </div>
+
+                {/* Error message feedback */}
+                {errorMessage && (
+                  <p className="text-red-600 text-xs md:text-sm font-outfit text-center mt-2 font-semibold">
+                    {errorMessage}
+                  </p>
+                )}
+              </>
+            )}
           </form>
         </div>
 
