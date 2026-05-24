@@ -5,8 +5,8 @@ import line4 from '../assets/Line4.svg';
 const Hero = () => {
   const [bgLoaded, setBgLoaded] = useState(false);
   return (
-    <section className="relative w-full bg-brand-navy-dark text-white min-h-screen overflow-hidden flex flex-col">
-      <img src={headerBg} className={`absolute inset-0 w-full h-full object-cover pointer-events-none z-0 transition-opacity duration-1000 ${bgLoaded ? 'opacity-100' : 'opacity-0'}`} alt="hero bg" onLoad={() => setBgLoaded(true)} />
+    <section className="relative w-full bg-brand-navy-dark text-white overflow-hidden flex flex-col">
+      <img src={headerBg} className={`absolute inset-0 w-full h-full object-cover max-h-[85vh] lg:max-h-[75vh] pointer-events-none z-0 transition-opacity duration-1000 ${bgLoaded ? 'opacity-100' : 'opacity-0'}`} alt="hero bg" onLoad={() => setBgLoaded(true)} />
 
 
 
@@ -19,7 +19,7 @@ const Hero = () => {
         whileInView={bgLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.7, ease: "easeOut" }}
-        className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16 pt-32 pb-16 md:pt-40 lg:pt-44 md:pb-24 flex flex-col items-start text-left flex-grow justify-center"
+        className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16 pt-28 pb-12 md:pt-32 lg:pt-36 md:pb-16 flex flex-col items-start text-left flex-grow justify-start"
       >
 
         {/* Text Width Constraint */}
@@ -35,7 +35,7 @@ const Hero = () => {
           </div>
 
           {/* Two Column Text (Paragraph Proportions balanced) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 w-full text-left relative z-10 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full text-left relative z-10 mb-8">
             <div className="flex flex-col items-start max-w-[520px]">
               <p className="text-lg lg:text-xl font-outfit text-gray-200 leading-relaxed font-light text-left m-0 p-0 drop-shadow-md">
                 <span className="text-xl lg:text-2xl font-normal text-white">Parkinson's</span> can become a chronic disease managed for decades, but that future depends on something that still does not exist: continuous, precise and objective measurement of how the disease progresses.
