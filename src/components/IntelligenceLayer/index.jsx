@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import bg05 from '../assets/bg-05.svg';
-import frame40 from '../assets/Frame40.svg';
+import bg05 from '../../assets/backgrounds/intelligence-layer-bg.svg';
+import frame40 from '../../assets/images/intelligence-layer-diagram.svg';
+import dopaXLogoLight from '../../assets/images/dopa-x-logo-light.svg';
 
 const IntelligenceLayer = () => {
   const [bgLoaded, setBgLoaded] = useState(false);
@@ -22,7 +23,7 @@ const IntelligenceLayer = () => {
           {/* Column 1: Left - Text Area */}
           <div className="w-full lg:w-1/4 flex flex-col items-start text-left">
             <img 
-              src="/assets/logos/Dopa-Z-logo light.svg" 
+              src={dopaXLogoLight} 
               alt="dopa-x Logo" 
               className="w-32 md:w-40 mb-3 object-contain" 
             />
@@ -49,4 +50,5 @@ const IntelligenceLayer = () => {
   );
 };
 
+export { IntelligenceLayer };
 export default IntelligenceLayer;

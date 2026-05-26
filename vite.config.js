@@ -14,7 +14,7 @@ export default defineConfig(({ mode }) => {
         name: 'api-server',
         configureServer(server) {
           server.middlewares.use(async (req, res, next) => {
-            if (req.url === '/api/send-email' && req.method === 'POST') {
+            if (req.url === '/api/emailService' && req.method === 'POST') {
               let body = '';
               req.on('data', chunk => {
                 body += chunk;

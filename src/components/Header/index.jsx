@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import dopaXLogoLight from '../../assets/images/dopa-x-logo-light.svg';
 
 const Header = () => {
   const location = useLocation();
@@ -27,7 +28,7 @@ const Header = () => {
           className="flex-shrink-0"
         >
           <img
-            src="/assets/logos/Dopa-Z-logo light.svg"
+            src={dopaXLogoLight}
             alt="dopa-x Logo"
             className="w-48 md:w-56 h-auto object-contain cursor-pointer"
           />
@@ -67,4 +68,5 @@ const Header = () => {
   );
 };
 
+export { Header };
 export default Header;

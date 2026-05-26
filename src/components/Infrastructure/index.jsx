@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import containerBg from '../assets/Container.svg';
-import bg04 from '../assets/bg-04.svg';
+import containerBg from '../../assets/backgrounds/container-bg.svg';
+import bg04 from '../../assets/backgrounds/infrastructure-bg.svg';
+import currentStateGraph from '../../assets/images/current-state-graph.svg';
+import futureStateGraph from '../../assets/images/future-state-graph.svg';
+
 const Infrastructure = () => {
   const [bgLoaded, setBgLoaded] = useState(false);
   return (
     <section className="w-full relative overflow-hidden py-10 bg-[#E6E6F4]">
       <img src={bg04} className={`absolute inset-0 w-full h-full object-cover pointer-events-none z-0 transition-opacity duration-1000 ${bgLoaded ? 'opacity-100' : 'opacity-0'}`} alt="bg top" onLoad={() => setBgLoaded(true)} />
       
-
       <motion.div 
         initial={{ opacity: 0, y: 40 }}
         whileInView={bgLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
@@ -45,7 +47,7 @@ const Infrastructure = () => {
             <div className="relative z-10 flex flex-col items-center w-full h-full">
               <div className="w-full h-[220px] flex items-center justify-center mb-10 shrink-0">
                 <img 
-                  src="/assets/graphs/graph-01.svg" 
+                  src={currentStateGraph} 
                   alt="Current State Graph" 
                   className="w-3/4 max-w-[280px] h-full object-contain"
                 />
@@ -66,7 +68,7 @@ const Infrastructure = () => {
             <div className="flex flex-col items-center w-full h-full">
               <div className="w-full h-[220px] flex items-center justify-center mb-10 shrink-0">
                 <img 
-                  src="/assets/graphs/graph-02.svg" 
+                  src={futureStateGraph} 
                   alt="Future State Graph" 
                   className="w-3/4 max-w-[280px] h-full object-contain"
                 />
@@ -89,4 +91,5 @@ const Infrastructure = () => {
   );
 };
 
+export { Infrastructure };
 export default Infrastructure;

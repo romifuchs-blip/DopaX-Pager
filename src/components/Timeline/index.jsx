@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import bg06 from '../assets/bg-06.svg';
+import bg06 from '../../assets/backgrounds/timeline-bg.svg';
 
 const Timeline = () => {
   const [bgLoaded, setBgLoaded] = useState(false);
@@ -138,4 +138,5 @@ const Timeline = () => {
   );
 };
 
+export { Timeline };
 export default Timeline;

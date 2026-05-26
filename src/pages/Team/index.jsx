@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 // Import graphics and backgrounds
-import teamHeaderBg from '../assets/header-bg (1).svg';
-import builtByBg from '../assets/Built By.svg';
-import frame12Bg from '../assets/Frame12.svg';
+import teamHeaderBg from '../../assets/backgrounds/page-header-bg.svg';
+import builtByBg from '../../assets/backgrounds/built-by-bg.svg';
+import frame12Bg from '../../assets/backgrounds/team-card-bg.svg';
 
 // Import team member avatars
-import achiPic from '../assets/Achi-pic.svg';
-import dvirPic from '../assets/DvirDahary.svg';
-import oriPic from '../assets/OriWeisberg.svg';
-import gabrielPic from '../assets/GabrielCohen.svg';
-import danPic from '../assets/Prof.DanMarom.svg';
+import achiPic from '../../assets/images/achi-krauz.svg';
+import dvirPic from '../../assets/images/dvir-dahary.svg';
+import oriPic from '../../assets/images/ori-weisberg.svg';
+import gabrielPic from '../../assets/images/gabriel-cohen.svg';
+import danPic from '../../assets/images/dan-marom.svg';
 
 const TeamMemberCard = ({ member }) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -138,4 +138,5 @@ const Team = () => {
   );
 };
 
+export { Team };
 export default Team;

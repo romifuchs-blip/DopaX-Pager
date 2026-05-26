@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import bg03 from '../assets/bg-03.svg';
+import bg03 from '../../assets/backgrounds/measurements-bg.svg';
+
 const Measurements = () => {
   const [bgLoaded, setBgLoaded] = useState(false);
   return (
@@ -47,4 +48,5 @@ const Measurements = () => {
   );
 };
 
+export { Measurements };
 export default Measurements;

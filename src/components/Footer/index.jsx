@@ -1,4 +1,5 @@
 import React from 'react';
+import dopaXLogoDark from '../../assets/images/dopa-x-logo-dark.svg';
 
 const Footer = () => {
   return (
@@ -8,7 +9,7 @@ const Footer = () => {
         {/* Logo */}
         <div className="flex-shrink-0">
           <img 
-            src="/assets/logos/Dopa-Z-logo%20dark.svg" 
+            src={dopaXLogoDark} 
             alt="dopa-x Logo" 
             className="h-8 md:h-10 w-auto object-contain" 
           />
@@ -49,4 +50,5 @@ const Footer = () => {
   );
 };
 
+export { Footer };
 export default Footer;

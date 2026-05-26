@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import frame40Bg from '../assets/Frame 40.svg';
+import frame40Bg from '../../assets/images/support-options-diagram.svg';
+
 const JoinUs = () => {
   const [name, setName] = useState('');
   const [organization, setOrganization] = useState('');
@@ -16,7 +17,7 @@ const JoinUs = () => {
     setErrorMessage('');
 
     try {
-      const response = await fetch('/api/send-email', {
+      const response = await fetch('/api/emailService', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -48,6 +49,7 @@ const JoinUs = () => {
       setIsSending(false);
     }
   };
+
   const cards = [
     {
       title: "PHILANTHROPIC SUPPORT",
@@ -114,7 +116,6 @@ const JoinUs = () => {
 
 </defs>
 </svg>
-
 
       <motion.div 
         initial={{ opacity: 0, y: 40 }}
@@ -265,4 +266,5 @@ const JoinUs = () => {
   );
 };
 
+export { JoinUs };
 export default JoinUs;

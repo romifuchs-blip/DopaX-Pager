@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import headerBg from '../assets/header-bg.svg';
-import line4 from '../assets/Line4.svg';
+import headerBg from '../../assets/backgrounds/hero-bg.svg';
+import line4 from '../../assets/icons/hero-underline.svg';
+
 const Hero = () => {
   const [bgLoaded, setBgLoaded] = useState(false);
   return (
     <section className="relative w-full bg-brand-navy-dark text-white overflow-hidden flex flex-col">
       <img src={headerBg} className={`absolute inset-0 w-full h-full object-cover max-h-[85vh] lg:max-h-[75vh] pointer-events-none z-0 transition-opacity duration-1000 ${bgLoaded ? 'opacity-100' : 'opacity-0'}`} alt="hero bg" onLoad={() => setBgLoaded(true)} />
-
-
 
       {/* Fallback placeholder if image is missing */}
       <div className="absolute right-0 top-0 h-full w-[40%] pointer-events-none"></div>
@@ -53,10 +52,10 @@ const Hero = () => {
             <p className="text-[17px] md:text-lg font-outfit text-white font-bold tracking-wide m-0 text-left">
               For the 15M+ people living with it, that vision cannot come soon enough.
             </p>
-            <img 
-              src={line4} 
-              alt="underline" 
-              className="w-full h-auto mt-2" 
+            <img
+              src={line4}
+              alt="underline"
+              className="w-full h-auto mt-2"
             />
           </div>
 
@@ -66,4 +65,5 @@ const Hero = () => {
   );
 };
 
+export { Hero };
 export default Hero;

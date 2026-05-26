@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import bg02 from '../assets/bg-02.svg';
+import bg02 from '../../assets/backgrounds/missing-x-bg.svg';
 
 const MissingX = () => {
   const [bgLoaded, setBgLoaded] = useState(false);
@@ -45,4 +45,5 @@ const MissingX = () => {
   );
 };
 
+export { MissingX };
 export default MissingX;

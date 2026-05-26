@@ -5,7 +5,7 @@ from PIL import Image
 import io
 
 for i in range(1, 6):
-    with open(f'public/assets/logos/image{i}.svg', 'r') as f:
+    with open(f'../src/assets/images/partner-logo-{i}.svg', 'r') as f:
         content = f.read()
     match = re.search(r'data:image/png;base64,([^"]+)', content)
     if match:
@@ -21,4 +21,4 @@ for i in range(1, 6):
                 colors.append(color)
             if len(colors) >= 5:
                 break
-        print(f"image{i}: {colors}")
+        print(f"partner-logo-{i}: {colors}")

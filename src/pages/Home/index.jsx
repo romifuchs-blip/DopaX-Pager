@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import Hero from '../components/Hero';
-import MissingX from '../components/MissingX';
-import Measurements from '../components/Measurements';
-import Infrastructure from '../components/Infrastructure';
-import IntelligenceLayer from '../components/IntelligenceLayer';
-import TeamIntro from '../components/TeamIntro';
-import Timeline from '../components/Timeline';
+import { Hero } from '../../components/Hero';
+import { MissingX } from '../../components/MissingX';
+import { Measurements } from '../../components/Measurements';
+import { Infrastructure } from '../../components/Infrastructure';
+import { IntelligenceLayer } from '../../components/IntelligenceLayer';
+import { TeamIntro } from '../../components/TeamIntro';
+import { Timeline } from '../../components/Timeline';
 
 const Home = () => {
   const location = useLocation();
@@ -39,4 +39,5 @@ const Home = () => {
   );
 };
 
+export { Home };
 export default Home;

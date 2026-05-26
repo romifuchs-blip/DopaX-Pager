@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import frame12 from '../assets/Frame_12.svg';
+import frame12 from '../../assets/backgrounds/founder-card-bg.svg';
+import achiPic from '../../assets/images/achi-krauz.svg';
 
 const TeamIntro = () => {
   const [bgLoaded, setBgLoaded] = useState(false);
@@ -32,7 +33,7 @@ const TeamIntro = () => {
               {/* Image at Top */}
               <div className="flex-shrink-0">
                 <img
-                  src="/assets/graphs/Achi-pic.svg"
+                  src={achiPic}
                   alt="Achi Krauz"
                   className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover shadow-sm"
                 />
@@ -65,4 +66,5 @@ const TeamIntro = () => {
   );
 };
 
+export { TeamIntro };
 export default TeamIntro;

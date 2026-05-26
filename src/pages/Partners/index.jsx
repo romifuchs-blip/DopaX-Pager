@@ -2,24 +2,24 @@ import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 // Import graphics and backgrounds
-import partnersHeaderBg from '../assets/header-bg (1).svg';
-import builtByBg from '../assets/Built By.svg';
-import orangeSquiggle from '../assets/Line41.svg';
+import partnersHeaderBg from '../../assets/backgrounds/page-header-bg.svg';
+import builtByBg from '../../assets/backgrounds/built-by-bg.svg';
+import orangeSquiggle from '../../assets/icons/partners-underline.svg';
 
 // Import institutional partner logos
-import ifmLogo from '../assets/IFM.png';
-import deepdubLogo from '../assets/deepdub-logo.png';
-import ironNationLogo from '../assets/iron natiom-logo.png';
-import eyecucyLogo from '../assets/eyecucy-logo.png';
-import vocavibeLogo from '../assets/VOCAVIBE.png';
-import orocaLogo from '../assets/Oroca-logo.png';
+import ifmLogo from '../../assets/images/ifm-logo.png';
+import deepdubLogo from '../../assets/images/deepdub-logo.png';
+import ironNationLogo from '../../assets/images/iron-nation-logo.png';
+import eyecucyLogo from '../../assets/images/eyecucy-logo.png';
+import vocavibeLogo from '../../assets/images/vocavibe-logo.png';
+import orocaLogo from '../../assets/images/oroca-logo.png';
 
 // Import scientific advisory board avatars
-import chenLinchevskiPic from '../assets/ChenLinchevski.svg';
-import profMoussaYoudimPic from '../assets/Prof.MoussaYoudim.svg';
-import profHagaiBergmanPic from '../assets/Prof.HagaiBergman.svg';
-import atanGrossPic from '../assets/AtanGross.png';
-import shayBenShacharPic from '../assets/ShayBen-Shachar.jpg';
+import chenLinchevskiPic from '../../assets/images/chen-linchevski.svg';
+import profMoussaYoudimPic from '../../assets/images/moussa-youdim.svg';
+import profHagaiBergmanPic from '../../assets/images/hagai-bergman.svg';
+import atanGrossPic from '../../assets/images/atan-gross.png';
+import shayBenShacharPic from '../../assets/images/shay-ben-shachar.jpg';
 
 const Partners = () => {
   const location = useLocation();
@@ -194,4 +194,5 @@ const Partners = () => {
   );
 };
 
+export { Partners };
 export default Partners;
