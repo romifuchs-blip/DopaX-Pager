@@ -8,11 +8,13 @@ This repository hosts the **Dopa-X Pager** landing page and collaboration portal
 
 ## 🚀 Key Features
 
-* **Premium Visual Design**: Vibrant colors, dark mode styling, and smooth, responsive layouts.
-* **Dynamic Animations**: Implemented using **Framer Motion** for a premium user experience and micro-interactions.
-* **Intelligence Layer Walkthrough**: Interactive visualization of the Dopa-X closed-loop system (**Sense**, **Analyze**, **Deliver**).
-* **Roadmap & Timeline**: Interactive visualization of progress from 2026 foundation to 2027 clinical adoption.
-* **Secure Collaboration Form**: An integrated, production-ready form powered by serverless handlers and **Resend** for partner, philanthropic, and academic inquiries.
+* **Premium Visual Design**: Vibrant colors, sleeker dark modes, glassmorphism, responsive flow layouts, and meticulously polished visual accents.
+* **Dynamic Animations**: Implemented using **Framer Motion** for an engaging user experience, hovering transitions, and reactive micro-interactions.
+* **Large-Format Storytelling Card**: The **Intelligence Layer** features a premium, linear storytelling card layout with giant numeric indicators (`01`, `02`, `03`), executive-scale typography, and a dynamic vertical gradient connector line on desktop.
+* **Coded Responsive Support Options**: The **Join Us** options are built as modular, pure-CSS responsive cards featuring custom peachy gradients, generous padding, and robust vertical stacking on mobile viewports for optimal readability.
+* **Roadmap & Timeline**: Interactive visualization of Dopa-X development progress from 2026 foundation to 2027 clinical adoption.
+* **Secure Collaboration Form**: An integrated, production-ready contact form powered by serverless API handlers and **Resend** for partner, philanthropic, and academic inquiries.
+
 
 ---
 
