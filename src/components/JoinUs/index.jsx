@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import frame40Bg from '../../assets/images/support-options-diagram.svg';
 
 const JoinUs = () => {
   const [name, setName] = useState('');
@@ -130,22 +131,48 @@ const JoinUs = () => {
         </h2>
         
         {/* 3-Card Grid Wrapper */}
-        <div className="w-full max-w-[950px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-y-10 md:gap-y-0 md:gap-x-6 lg:gap-x-8 w-[90%] md:w-full">
+        {/* Desktop Cards: SVG Image Overlay (hidden md:block) */}
+        <div className="hidden md:block relative w-full max-w-[950px] mx-auto">
+          {/* Natural Image Layer */}
+          <img 
+            src={frame40Bg} 
+            alt="Support Options" 
+            className="w-full h-auto object-contain pointer-events-none" 
+          />
+          
+          {/* Absolute Overlay Grid */}
+          <div className="absolute inset-0 w-full h-full grid grid-cols-3">
+            {cards.map((card, idx) => (
+              <div 
+                key={idx} 
+                className="flex flex-col items-center justify-center text-center px-5 sm:px-8 md:px-10 h-full"
+              >
+                <h3 className="text-[12px] sm:text-[16px] md:text-[20px] font-rajdhani font-semibold leading-[1.2] tracking-[1.2px] uppercase text-brand-blue text-center w-full">
+                  {card.title}
+                </h3>
+                <p className="font-outfit font-normal text-[10px] sm:text-[13px] md:text-[16px] leading-[1.7] text-brand-navy-dark text-center w-full mt-2 md:mt-3 px-1">
+                  {card.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Mobile Cards: Stacked Coded Cards (block md:hidden) */}
+        <div className="block md:hidden w-full flex flex-col gap-y-6 max-w-md mx-auto px-4">
           {cards.map((card, idx) => {
-            // Determine gradient direction/color based on card index to match support-options-diagram.svg
             const gradientClass = idx === 1 
               ? "bg-gradient-to-b from-[#FFDAD2] to-[#FFDAD2]/0" 
               : "bg-gradient-to-b from-[#FFDAD2]/0 to-[#FFDAD2]";
-            
             return (
               <div 
                 key={idx} 
-                className={`flex flex-col items-center justify-center text-center p-8 md:p-10 min-h-[220px] md:min-h-[260px] rounded-[30px] ${gradientClass} border border-brand-blue/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-md`}
+                className={`flex flex-col items-center justify-center text-center p-8 min-h-[160px] rounded-[30px] ${gradientClass} border border-brand-blue/15 shadow-sm transition-all duration-300 hover:shadow-md`}
               >
-                <h3 className="text-lg md:text-xl font-rajdhani font-bold leading-snug tracking-[1.5px] uppercase text-brand-blue text-center w-full mb-3">
+                <h3 className="text-lg font-rajdhani font-bold leading-snug tracking-[1.5px] uppercase text-brand-blue text-center w-full mb-3">
                   {card.title}
                 </h3>
-                <p className="font-outfit font-normal text-base md:text-lg leading-relaxed text-brand-navy-dark text-center w-full">
+                <p className="font-outfit font-normal text-sm leading-relaxed text-brand-navy-dark text-center w-full">
                   {card.desc}
                 </p>
               </div>
@@ -154,10 +181,10 @@ const JoinUs = () => {
         </div>
         
         {/* Contact Form Section */}
-        <div className="mt-6 md:mt-8 w-full flex flex-col items-center relative z-10">
+        <div className="mt-8 md:mt-10 w-full flex flex-col items-center relative z-10 px-4 md:px-0">
           <form 
             onSubmit={handleSubmit}
-            className="w-full max-w-[700px] mx-auto border-2 border-[#2828C6] rounded-[19px] p-6 pt-8 md:p-10 md:pt-12 flex flex-col gap-5 bg-transparent"
+            className="w-[90%] md:w-full max-w-[700px] mx-auto border-2 border-[#2828C6] rounded-[19px] p-6 pt-8 md:p-10 md:pt-12 flex flex-col gap-5 bg-transparent"
           >
             {isSuccess ? (
               <div className="flex flex-col items-center justify-center text-center py-6 px-4 gap-4 w-full">
