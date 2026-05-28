@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-// Import graphics and backgrounds
-import teamHeaderBg from '../../assets/backgrounds/page-header-bg.svg';
-import builtByBg from '../../assets/backgrounds/built-by-bg.svg';
-import frame12Bg from '../../assets/backgrounds/team-card-bg.svg';
+const teamHeaderBg = '/backgrounds/page-header-bg.svg';
+const builtByBg = '/backgrounds/built-by-bg.svg';
+const frame12Bg = '/backgrounds/team-card-bg.svg';
 
 // Import team member avatars
 import achiPic from '../../assets/images/achi-krauz.svg';
@@ -111,10 +110,8 @@ const Team = () => {
   return (
     <div className="w-full flex flex-col">
       {/* Top Header Section */}
-      <div 
-        className="relative w-full bg-brand-navy-dark text-white pt-40 pb-20 md:pt-48 md:pb-24 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url("${teamHeaderBg}")` }}
-      >
+      <div className="relative w-full bg-brand-navy-dark text-white pt-40 pb-20 md:pt-48 md:pb-24 overflow-hidden">
+        <img src={teamHeaderBg} className="absolute inset-0 w-full h-full object-cover pointer-events-none z-0" alt="" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 lg:px-16 text-left flex flex-col items-start">
           <h1 className="text-5xl md:text-6xl font-rajdhani font-bold tracking-wide mb-6">Our Team</h1>
           <p className="text-lg md:text-xl font-outfit text-gray-200 max-w-3xl leading-relaxed m-0 font-light">
@@ -124,10 +121,8 @@ const Team = () => {
       </div>
 
       {/* Team Members Section */}
-      <section 
-        className="w-full py-16 md:py-24 bg-cover bg-center relative"
-        style={{ backgroundImage: `url(${builtByBg})` }}
-      >
+      <section className="w-full py-16 md:py-24 relative overflow-hidden">
+        <img src={builtByBg} loading="lazy" className="absolute inset-0 w-full h-full object-cover pointer-events-none z-0" alt="" />
         <div className="max-w-[1000px] mx-auto px-6 md:px-12 lg:px-16 flex flex-col gap-8 relative z-10">
           {members.map((member, index) => (
             <TeamMemberCard key={index} member={member} />

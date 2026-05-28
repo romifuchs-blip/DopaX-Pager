@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import bg05 from '../../assets/backgrounds/intelligence-layer-bg.svg';
 import dopaXLogoLight from '../../assets/images/dopa-x-logo-light.svg';
-import intelligenceLayerBg2 from '../../assets/backgrounds/intelligence-layer-bg2.svg';
+
+const bg05 = '/backgrounds/intelligence-layer-bg.svg';
+const intelligenceLayerBg2 = '/backgrounds/intelligence-layer-bg2.svg';
 
 const IntelligenceLayer = () => {
   const [bgLoaded, setBgLoaded] = useState(false);
@@ -11,6 +12,7 @@ const IntelligenceLayer = () => {
     <section className="w-full bg-brand-navy-dark py-10 relative overflow-hidden">
       <img 
         src={bg05} 
+        loading="lazy"
         className={`absolute inset-0 w-full h-full object-cover pointer-events-none z-0 transition-opacity duration-1000 ${bgLoaded ? 'opacity-100' : 'opacity-0'}`} 
         alt="bg bottom" 
         onLoad={() => setBgLoaded(true)} 
@@ -46,6 +48,7 @@ const IntelligenceLayer = () => {
           <div className="w-3/4 flex items-center justify-center py-6">
             <img 
               src={intelligenceLayerBg2} 
+              loading="lazy"
               alt="Intelligence Layer Diagram" 
               className="w-full h-auto max-w-4xl object-contain pointer-events-none" 
             />

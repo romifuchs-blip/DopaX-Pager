@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import headerBg from '../../assets/backgrounds/hero-bg.svg';
 import line4 from '../../assets/icons/hero-underline.svg';
+
+const headerBg = '/backgrounds/hero-bg.svg';
 
 const Hero = () => {
   const [bgLoaded, setBgLoaded] = useState(false);

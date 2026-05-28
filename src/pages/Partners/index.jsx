@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-// Import graphics and backgrounds
-import partnersHeaderBg from '../../assets/backgrounds/page-header-bg.svg';
-import builtByBg from '../../assets/backgrounds/built-by-bg.svg';
+const partnersHeaderBg = '/backgrounds/page-header-bg.svg';
+const builtByBg = '/backgrounds/built-by-bg.svg';
 import orangeSquiggle from '../../assets/icons/partners-underline.svg';
 
 // Import institutional partner logos
@@ -79,10 +78,8 @@ const Partners = () => {
   return (
     <div className="w-full flex flex-col">
       {/* Top Header Section */}
-      <div 
-        className="relative w-full bg-brand-navy-dark text-white pt-40 pb-20 md:pt-48 md:pb-24 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url("${partnersHeaderBg}")` }}
-      >
+      <div className="relative w-full bg-brand-navy-dark text-white pt-40 pb-20 md:pt-48 md:pb-24 overflow-hidden">
+        <img src={partnersHeaderBg} className="absolute inset-0 w-full h-full object-cover pointer-events-none z-0" alt="" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 lg:px-16 text-left flex flex-col items-start">
           <h1 className="text-5xl md:text-6xl font-rajdhani font-bold tracking-wide mb-6">Our Partners</h1>
           <div className="flex flex-col items-start max-w-3xl">
@@ -99,10 +96,8 @@ const Partners = () => {
       </div>
 
       {/* Middle Content Section */}
-      <section 
-        className="w-full py-12 md:py-16 bg-cover bg-center relative bg-no-repeat"
-        style={{ backgroundImage: `url(${builtByBg})` }}
-      >
+      <section className="w-full py-12 md:py-16 relative overflow-hidden">
+        <img src={builtByBg} loading="lazy" className="absolute inset-0 w-full h-full object-cover pointer-events-none z-0" alt="" />
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative z-10 flex flex-col">
           
           {/* Institutional Partners Sub-section */}

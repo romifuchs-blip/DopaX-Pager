@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import bg06 from '../../assets/backgrounds/timeline-bg.svg';
+
+const bg06 = '/backgrounds/timeline-bg.svg';
 
 const Timeline = () => {
   const [bgLoaded, setBgLoaded] = useState(false);
@@ -39,7 +40,7 @@ const Timeline = () => {
 
   return (
     <section id="partners" className="w-full bg-[#F9FAFB] py-10 relative overflow-hidden">
-      <img src={bg06} className={`absolute inset-0 w-full h-full object-cover pointer-events-none z-0 transition-opacity duration-1000 ${bgLoaded ? 'opacity-100' : 'opacity-0'}`} alt="Timeline Background" onLoad={() => setBgLoaded(true)} />
+      <img src={bg06} loading="lazy" className={`absolute inset-0 w-full h-full object-cover pointer-events-none z-0 transition-opacity duration-1000 ${bgLoaded ? 'opacity-100' : 'opacity-0'}`} alt="Timeline Background" onLoad={() => setBgLoaded(true)} />
       <div className="relative z-10">
       <motion.div
         initial={{ opacity: 0, y: 40 }}

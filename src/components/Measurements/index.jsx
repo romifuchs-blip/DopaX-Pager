@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import bg03 from '../../assets/backgrounds/measurements-bg.svg';
+
+const bg03 = '/backgrounds/measurements-bg.svg';
 
 const Measurements = () => {
   const [bgLoaded, setBgLoaded] = useState(false);
   return (
     <section className="relative w-full bg-[#F9FAFB] py-10 overflow-hidden z-0">
-      <img src={bg03} className={`absolute inset-0 w-full h-full object-cover pointer-events-none z-0 transition-opacity duration-1000 ${bgLoaded ? 'opacity-100' : 'opacity-0'}`} alt="features bg" onLoad={() => setBgLoaded(true)} />
+      <img src={bg03} loading="lazy" className={`absolute inset-0 w-full h-full object-cover pointer-events-none z-0 transition-opacity duration-1000 ${bgLoaded ? 'opacity-100' : 'opacity-0'}`} alt="features bg" onLoad={() => setBgLoaded(true)} />
 
       {/* Content Centering Wrapper */}
       <motion.div 

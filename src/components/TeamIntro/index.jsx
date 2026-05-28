@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import frame12 from '../../assets/backgrounds/founder-card-bg.svg';
 import achiPic from '../../assets/images/achi-krauz.svg';
+
+const frame12 = '/backgrounds/founder-card-bg.svg';
 
 const TeamIntro = () => {
   const [bgLoaded, setBgLoaded] = useState(false);
@@ -27,7 +28,7 @@ const TeamIntro = () => {
 
           {/* Right Column (Founder Card) */}
           <div className="w-full md:w-1/2 max-w-[450px] bg-[#FCEAE3] p-10 md:p-12 rounded-[3rem] shadow-sm relative overflow-hidden flex flex-col items-center justify-center text-center">
-            <img src={frame12} className={`absolute inset-0 w-full h-full object-cover pointer-events-none z-0 transition-opacity duration-1000 ${bgLoaded ? 'opacity-100' : 'opacity-0'}`} alt="Founder Card Background" onLoad={() => setBgLoaded(true)} />
+            <img src={frame12} loading="lazy" className={`absolute inset-0 w-full h-full object-cover pointer-events-none z-0 transition-opacity duration-1000 ${bgLoaded ? 'opacity-100' : 'opacity-0'}`} alt="Founder Card Background" onLoad={() => setBgLoaded(true)} />
             <div className={`relative z-10 flex flex-col items-center gap-6 transition-opacity duration-1000 ${bgLoaded ? 'opacity-100' : 'opacity-0'}`}>
 
               {/* Image at Top */}

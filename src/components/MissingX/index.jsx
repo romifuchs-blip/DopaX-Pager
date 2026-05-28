@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import bg02 from '../../assets/backgrounds/missing-x-bg.svg';
+
+const bg02 = '/backgrounds/missing-x-bg.svg';
 
 const MissingX = () => {
   const [bgLoaded, setBgLoaded] = useState(false);
   return (
     <section id="missing-x" className="w-full bg-bg-light py-8 flex flex-col justify-center border-b border-gray-light/30 relative overflow-hidden scroll-mt-24">
-      <img src={bg02} className={`absolute inset-0 w-full h-full object-cover pointer-events-none z-0 transition-opacity duration-1000 ${bgLoaded ? 'opacity-100' : 'opacity-0'}`} alt="measurements bg" onLoad={() => setBgLoaded(true)} />
+      <img src={bg02} loading="lazy" className={`absolute inset-0 w-full h-full object-cover pointer-events-none z-0 transition-opacity duration-1000 ${bgLoaded ? 'opacity-100' : 'opacity-0'}`} alt="measurements bg" onLoad={() => setBgLoaded(true)} />
       <div className="relative z-10">
       <motion.div 
         initial={{ opacity: 0, y: 40 }}
