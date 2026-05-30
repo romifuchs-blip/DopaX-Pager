@@ -8,7 +8,7 @@ const Hero = () => {
   const [bgLoaded, setBgLoaded] = useState(false);
   return (
     <section className="relative w-full bg-brand-navy-dark text-white overflow-hidden flex flex-col">
-      <img src={headerBg} className={`absolute inset-0 w-full h-full object-cover max-h-[85vh] lg:max-h-[75vh] pointer-events-none z-0 transition-opacity duration-1000 ${bgLoaded ? 'opacity-100' : 'opacity-0'}`} alt="hero bg" onLoad={() => setBgLoaded(true)} />
+      <img src={headerBg} className={`absolute inset-0 w-full h-full object-cover pointer-events-none z-0 transition-opacity duration-1000 ${bgLoaded ? 'opacity-100' : 'opacity-0'}`} alt="hero bg" onLoad={() => setBgLoaded(true)} />
 
       {/* Fallback placeholder if image is missing */}
       <div className="absolute right-0 top-0 h-full w-[40%] pointer-events-none"></div>
