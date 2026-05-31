@@ -66,7 +66,7 @@ const JoinUs = () => {
   ];
 
   return (
-    <section id="join-us" className="w-full bg-[#EAEAF5] py-10 md:py-12 relative overflow-hidden">
+    <section id="join-us" className="w-full bg-[#EAEAF5] py-10 md:py-12 relative overflow-hidden scroll-mt-24">
       {/* Faint DNA Background Graphic */}
       <svg width="100%" height="100%" viewBox="0 0 1000 431" fill="none" xmlns="http://www.w3.org/2000/svg"  preserveAspectRatio="xMidYMid slice" className="absolute inset-0 pointer-events-none z-0 opacity-50 mix-blend-multiply">
 <g clipPath="url(#clip0_44_674)">

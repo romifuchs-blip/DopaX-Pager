@@ -111,8 +111,14 @@ const Header = () => {
           </Link>
           <a 
             onClick={(e) => {
-              handleJoinUsClick(e);
+              e.preventDefault();
               setIsOpen(false);
+              setTimeout(() => {
+                const element = document.getElementById('join-us');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                }
+              }, 100);
             }} 
             className="cursor-pointer text-white hover:text-brand-orange py-1 text-left w-full"
           >
