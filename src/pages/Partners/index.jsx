@@ -12,6 +12,7 @@ import ironNationLogo from '../../assets/images/iron-nation-logo.png';
 import eyecucyLogo from '../../assets/images/eyecucy-logo.png';
 import vocavibeLogo from '../../assets/images/vocavibe-logo.png';
 import orocaLogo from '../../assets/images/oroca-logo.png';
+import microsoftLogo from '../../assets/images/Microsoft_logo_(2012).svg.png';
 
 // Import scientific advisory board avatars
 import chenLinchevskiPic from '../../assets/images/chen-linchevski.svg';
@@ -29,12 +30,13 @@ const Partners = () => {
   }, [location]);
 
   const partners = [
-    { name: 'IFM', logo: ifmLogo, className: 'h-10 sm:h-14 md:h-16 lg:h-20 max-h-20' },
-    { name: 'Deepdub', logo: deepdubLogo, className: 'h-7 sm:h-10 md:h-12 lg:h-16 max-h-16' },
-    { name: 'Iron Nation', logo: ironNationLogo, className: 'h-6 sm:h-8 md:h-10 lg:h-12 max-h-12' },
-    { name: 'Eyecucy', logo: eyecucyLogo, className: 'h-8 sm:h-12 md:h-14 lg:h-18 max-h-18' },
-    { name: 'Vocavibe', logo: vocavibeLogo, className: 'h-7 sm:h-10 md:h-12 lg:h-16 max-h-16' },
-    { name: 'Oroca', logo: orocaLogo, className: 'h-8 sm:h-12 md:h-14 lg:h-18 max-h-18' }
+    { name: 'IFM', logo: ifmLogo, className: 'max-h-[55%] md:max-h-[85%] max-w-full object-contain' },
+    { name: 'Deepdub', logo: deepdubLogo, className: 'max-h-[85%] md:max-h-[70%] max-w-full object-contain' },
+    { name: 'Iron Nation', logo: ironNationLogo, className: 'max-h-[80%] md:max-h-[55%] max-w-full object-contain' },
+    { name: 'Microsoft', logo: microsoftLogo, className: 'max-h-[65%] md:max-h-[50%] max-w-full object-contain' },
+    { name: 'Eyecucy', logo: eyecucyLogo, className: 'max-h-[75%] md:max-h-[95%] max-w-full object-contain' },
+    { name: 'Vocavibe', logo: vocavibeLogo, className: 'max-h-[85%] md:max-h-[70%] max-w-full object-contain' },
+    { name: 'Oroca', logo: orocaLogo, className: 'max-h-[85%] md:max-h-[70%] max-w-full object-contain' }
   ];
 
   const boardMembers = [
@@ -108,16 +110,16 @@ const Partners = () => {
             
             {/* Logos Row */}
             <div className="w-full max-w-7xl mx-auto px-4">
-              <div className="flex flex-row flex-nowrap items-center justify-center gap-x-3 sm:gap-x-6 md:gap-x-10 lg:gap-x-12 w-full">
+              <div className="flex flex-wrap md:flex-nowrap items-center justify-center gap-y-6 gap-x-6 sm:gap-x-8 md:gap-x-10 lg:gap-x-12 w-full">
                 {partners.map((partner, index) => (
                   <div 
                     key={index} 
-                    className="flex items-center justify-center shrink flex-shrink transition-all duration-300 hover:scale-105"
+                    className="flex items-center justify-center flex-1 min-w-[140px] max-w-[180px] sm:max-w-[210px] md:max-w-[240px] lg:max-w-[280px] h-16 sm:h-24 md:h-28 lg:h-32 transition-all duration-300 hover:scale-105"
                   >
                     <img 
                       src={partner.logo} 
                       alt={`${partner.name} logo`} 
-                      className={`${partner.className} w-auto object-contain shrink`}
+                      className={`${partner.className}`}
                     />
                   </div>
                 ))}
