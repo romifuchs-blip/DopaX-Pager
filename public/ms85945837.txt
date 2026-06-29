@@ -1,0 +1,5 @@
+﻿{
+  "Description": "Domain ownership verification file for Microsoft 365 - place in the website root",
+  "Domain": "dopa-x.org",
+  "Id": "5df9985a-1386-4f68-9374-2b5dd3c7a2c1"
+}
